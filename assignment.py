@@ -57,6 +57,7 @@ plt.title('Q3: Ordinary Least Squares Fit')
 plt.legend()
 plt.savefig('output_q3.png')
 plt.show()
+# Q3 OLS fitting completed
 print(f"Q4 - OLS angle: {angle_ols:.2f} degrees")
 
 data = np.column_stack([x, y]).astype(float)
