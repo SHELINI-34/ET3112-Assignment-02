@@ -71,6 +71,8 @@ c_tls = mean_y - m_tls * mean_x
 angle_tls = np.degrees(np.arctan(m_tls))
 
 y_tls_line = m_tls * x_line + c_tls
+# Q4 completed
+
 
 plt.figure(figsize=(7, 6))
 plt.scatter(x, y, s=1, c='blue', label='Edge points')
