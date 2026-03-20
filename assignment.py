@@ -41,7 +41,7 @@ print("Q2 done")
 coeffs = np.polyfit(x, y, 1)
 m_ols = coeffs[0]
 c_ols = coeffs[1]
-angle_ols = np.degrees(np.arctan(m_ols))
+angle_ols = abs(np.degrees(np.arctan(m_ols)))
 
 x_line = np.linspace(x.min(), x.max(), 200)
 y_ols_line = m_ols * x_line + c_ols
@@ -68,7 +68,7 @@ U, S, Vt = np.linalg.svd(centered)
 normal = Vt[-1]
 m_tls = -normal[0] / normal[1]
 c_tls = mean_y - m_tls * mean_x
-angle_tls = np.degrees(np.arctan(m_tls))
+angle_tls = abs(np.degrees(np.arctan(m_tls)))
 
 y_tls_line = m_tls * x_line + c_tls
 # Q4 completed
@@ -95,7 +95,8 @@ ransac = RANSACRegressor(
 ransac.fit(x.reshape(-1, 1), y)
 m_ransac = ransac.estimator_.coef_[0]
 c_ransac = ransac.estimator_.intercept_
-angle_ransac = np.degrees(np.arctan(m_ransac))
+angle_ransac = abs(np.degrees(np.arctan(m_ransac)))
+
 
 inlier_mask = ransac.inlier_mask_
 outlier_mask = ~inlier_mask
